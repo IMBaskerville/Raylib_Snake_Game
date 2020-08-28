@@ -8,7 +8,7 @@ namespace Raylib_Snake
     class Game
     {
         // Static fields
-        public static readonly int SQUARESIZE = 30;
+        public const int SQUARESIZE = 30;
 
         // Window Fields
         private const int WIDTH = 800;

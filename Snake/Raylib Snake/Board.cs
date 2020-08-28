@@ -5,8 +5,8 @@ namespace Raylib_Snake
 {
 	class Board
 	{
-		public static readonly int COLS = 20;
-		public static readonly int ROWS = 15;
+		public const int COLS = 20;
+		public const int ROWS = 15;
 		public Board()
 		{
 			// Might be used later on

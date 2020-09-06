@@ -121,37 +121,21 @@ namespace Raylib_Snake
         {
             if (_snake.CanMove)
             {
-                if (IsKeyPressed(KEY_D) && !_snake.MoveLeft)
-                {
-                    _snake.MoveLeft = false;
-                    _snake.MoveRight = true;
-                    _snake.MoveUp = false;
-                    _snake.MoveDown = false;
-                    _snake.CanMove = false;
-                }
                 if (IsKeyPressed(KEY_A) && !_snake.MoveRight)
                 {
-                    _snake.MoveLeft = true;
-                    _snake.MoveRight = false;
-                    _snake.MoveUp = false;
-                    _snake.MoveDown = false;
-                    _snake.CanMove = false;
+                    _snake.ChangeMovementDirection("Left");
+                }
+                if (IsKeyPressed(KEY_D) && !_snake.MoveLeft)
+                {
+                    _snake.ChangeMovementDirection("Right");
                 }
                 if (IsKeyPressed(KEY_W) && !_snake.MoveDown)
                 {
-                    _snake.MoveLeft = false;
-                    _snake.MoveRight = false;
-                    _snake.MoveUp = true;
-                    _snake.MoveDown = false;
-                    _snake.CanMove = false;
+                    _snake.ChangeMovementDirection("Up");
                 }
                 if (IsKeyPressed(KEY_S) && !_snake.MoveUp)
                 {
-                    _snake.MoveLeft = false;
-                    _snake.MoveRight = false;
-                    _snake.MoveUp = false;
-                    _snake.MoveDown = true;
-                    _snake.CanMove = false;
+                    _snake.ChangeMovementDirection("Down");
                 }
             }
 

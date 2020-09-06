@@ -18,10 +18,10 @@ namespace Raylib_Snake
 			InitSnake();
 		}
 
-		public bool MoveLeft { get; set; }
-		public bool MoveRight { get; set; }
-		public bool MoveUp { get; set; }
-		public bool MoveDown { get; set; }
+		public bool MoveLeft { get; private set; }
+		public bool MoveRight { get; private set; }
+		public bool MoveUp { get; private set; }
+		public bool MoveDown { get; private set; }
 		public bool CanMove { get; set; }
 		public bool AteFood { get; set; }
 		public int MaxScore { get; private set; }
@@ -100,6 +100,17 @@ namespace Raylib_Snake
 			return false;
 		}
 
+		public void ChangeMovementDirection(string direction)
+		{
+			MoveLeft = false;
+			MoveRight = false;
+			MoveUp = false;
+			MoveDown = false;
+			CanMove = false;
+
+			SetDirection(direction);
+		}
+
 		private void MoveSnake()
 		{
 			if (MoveLeft)
@@ -153,5 +164,36 @@ namespace Raylib_Snake
 				AteFood = false;
             }
         }
+
+		private void SetDirection(string direction)
+		{
+			switch (direction)
+			{
+				case "Up":
+				{
+					MoveUp = true;
+					break;
+				}
+				case "Down":
+				{
+					MoveDown = true;
+					break;
+				}
+				case "Left":
+				{
+					MoveLeft = true;
+					break;
+				}
+				case "Right":
+				{
+					MoveRight = true;
+					break;
+				}
+				default:
+				{
+					break;
+				}
+			}
+		}
 	}
 }

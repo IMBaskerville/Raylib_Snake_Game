@@ -11,12 +11,6 @@ namespace Raylib_Snake
         private Vector2 _position;
         private readonly int _size;
         private int _score;
-        public Snake(int size)
-        {
-            _tail = new List<Vector2>();
-            _size = size;
-            InitSnake();
-        }
 
         public bool MoveLeft { get; private set; }
         public bool MoveRight { get; private set; }
@@ -25,6 +19,13 @@ namespace Raylib_Snake
         public bool CanMove { get; set; }
         public bool AteFood { get; set; }
         public int MaxScore { get; private set; }
+
+        public Snake(int size)
+        {
+            _tail = new List<Vector2>();
+            _size = size;
+            InitSnake();
+        }
 
         public void InitSnake()
         {

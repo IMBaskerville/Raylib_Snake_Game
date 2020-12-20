@@ -58,7 +58,7 @@ namespace Raylib_Snake
             _pauseBlinkTimer = 0;
             _pauseCanDisplay = true;
             _snake.InitSnake();
-            FoodSpawn();
+            SpawnNewFood();
         }
 
         private void Run()
@@ -84,8 +84,7 @@ namespace Raylib_Snake
         private void Update()
         {
             _snake.Update();
-            VerifyTailHit();
-            VerifyIfFoodEaten();
+            CheckSnakeCollision();
             _snake.CanMove = true;
         }
 
@@ -155,6 +154,12 @@ namespace Raylib_Snake
             }
         }
 
+        private void CheckSnakeCollision()
+        {
+            VerifyTailHit();
+            VerifyIfFoodEaten();
+        }
+
         private void VerifyTailHit()
         {
             if (_snake.VerifyHit())
@@ -170,11 +175,11 @@ namespace Raylib_Snake
             {
                 _snake.IncreaseScore();
                 _snake.AteFood = true;
-                FoodSpawn();
+                SpawnNewFood();
             }
         }
 
-        private void FoodSpawn()
+        private void SpawnNewFood()
         {
             _food.SpawnFood(_snake.GetTail());
         }

@@ -50,15 +50,18 @@ namespace Raylib_Snake
 
         public void Render()
         {
+            // Drawing snake tail
             for (int i = 0; i < _tail.Count; i++)
             {
                 int x = (int)_tail[i].X;
                 int y = (int)_tail[i].Y;
-                int sX = (int)_position.X;
-                int sY = (int)_position.Y;
                 DrawRectangle(x, y, _size, _size, SKYBLUE);
-                DrawRectangle(sX, sY, _size, _size, DARKBLUE);
             }
+
+            // Drawing snake head
+            int sX = (int)_position.X;
+            int sY = (int)_position.Y;
+            DrawRectangle(sX, sY, _size, _size, DARKBLUE);
         }
 
         public void IncreaseScore()

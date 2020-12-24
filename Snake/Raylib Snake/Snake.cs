@@ -92,12 +92,14 @@ namespace Raylib_Snake
         {
             for (int i = 0; i < _tail.Count; i++)
             {
-                if (i != (_tail.Count - 1))
+                if (i == (_tail.Count - 1))
                 {
-                    if ((_tail[i].X == _position.X) && (_tail[i].Y == _position.Y))
-                    {
-                        return true;
-                    }
+                    continue;
+                }
+                
+                if ((_tail[i].X == _position.X) && (_tail[i].Y == _position.Y))
+                {
+                    return true;
                 }
             }
 
